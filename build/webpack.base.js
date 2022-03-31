@@ -87,7 +87,11 @@ module.exports = {
     // · runtime + compiler 的文件 vue.js
     resolve: {
         alias: {
-            'vue': 'vue/dist/vue.js'
+            'vue': 'vue/dist/vue.js',
+            '@': path.resolve(__dirname, '../src'),
+            'images': path.resolve(__dirname, '../src/assets/images'),
+            'styles': path.resolve(__dirname, '../src/assets/styles'),
+            'svg': path.resolve(__dirname, '../src/assets/svg'),
         }
     }
 }

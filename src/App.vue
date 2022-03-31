@@ -1,47 +1,31 @@
 <template>
-    <div>
-        <h1>TodoList</h1>
-        <input 
-            type="text"
-            v-model="content"
-        />
-        <button @click="addTodo">添加</button>
-        <ul>
-            <li 
-                v-for="(item, index) of todoData" 
-                :key="index">
-                {{ item }}
-            </li>
-        </ul>
+    <div class="main">
+        <main-header></main-header>
+        <main-todo></main-todo>
+        <main-footer></main-footer>
     </div>
 </template>
 
 <script>
-// import './assets/scss/base.css'
-import './assets/styles/global.styl'
-export default {
-    name: 'App',
-    data() {
-        return {
-            todoData: ['todo1', 'todo2', 'todo3'],
-            content: ''
-        }
-    },
-    methods: {
-        addTodo () {
-            if (this.content === '') return
-            this.todoData.push(this.content)
-            this.content = ''
+    import mainHeader from './views/mainHeader.vue'
+    import mainTodo from './components/mainTodo.vue'
+    import mainFooter from './views/mainFooter.vue'
+
+    import './assets/styles/global.styl'
+
+    export default {
+        name: 'App',
+        components: {
+            // 组件名： 组件对象 （两者一致时可简写）
+            mainHeader: mainHeader,
+            mainTodo,
+            mainFooter
         }
     }
-}
 </script>
 
 <style lang="stylus" scoped>
-h1
-    color: red
-    // transform: translate(100px, 100px)
-
-li:nth-of-type(odd)
-    color: red
+    .main
+        float: left
+        margin-left: 50px
 </style>
